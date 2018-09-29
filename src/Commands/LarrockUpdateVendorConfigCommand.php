@@ -29,15 +29,15 @@ class LarrockUpdateVendorConfigCommand extends Command
     {
         $this->line('=== Update vendor configs ===');
 
-        $dir = str_replace('/Commands', '', __DIR__);
+        $dir = dirname(__FILE__, 3) . DIRECTORY_SEPARATOR . 'configVendor'. DIRECTORY_SEPARATOR;
 
-        \File::copy($dir.'/../configVendor/auth.php', base_path('/config/auth.php'));
-        \File::copy($dir.'/../configVendor/breadcrumbs.php', base_path('/config/breadcrumbs.php'));
-        \File::copy($dir.'/../configVendor/filesystems.php', base_path('/config/filesystems.php'));
-        \File::copy($dir.'/../configVendor/jsvalidation.php', base_path('/config/jsvalidation.php'));
-        \File::copy($dir.'/../configVendor/medialibrary.php', base_path('/config/medialibrary.php'));
-        \File::copy($dir.'/../configVendor/cart.php', base_path('/config/cart.php'));
-        \File::copy($dir.'/../configVendor/database.php', base_path('/config/database.php'));
+        \File::copy($dir . 'auth.php', base_path('/config/auth.php'));
+        \File::copy($dir . 'breadcrumbs.php', base_path('/config/breadcrumbs.php'));
+        \File::copy($dir . 'filesystems.php', base_path('/config/filesystems.php'));
+        \File::copy($dir . 'jsvalidation.php', base_path('/config/jsvalidation.php'));
+        \File::copy($dir . 'medialibrary.php', base_path('/config/medialibrary.php'));
+        \File::copy($dir . 'cart.php', base_path('/config/cart.php'));
+        \File::copy($dir . 'database.php', base_path('/config/database.php'));
         \File::deleteDirectory(base_path('public'));
 
         $this->info('Configs successfully updated');
